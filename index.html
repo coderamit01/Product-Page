@@ -17,7 +17,7 @@
         <div class="row g-4">
           <div class="col-md-6">
             <div class="product-img">
-              <img src="img/purple.png" class="img-fluid" alt="Product Image">
+              <img src="img/purple.png" class="img-fluid product-image" alt="Product Image">
             </div>
           </div>
           <div class="col-md-6 d-flex align-items-center">
@@ -58,19 +58,19 @@
                   <div class="vr-colors d-flex align-items-center gap-3">
                     <label for="1">
                       <input type="radio" name="color" id="1">
-                      <span class="one"></span>
+                      <span class="one" data-image="img/purple.png" data-color="Purple"></span>
                     </label>
                     <label for="2">
                       <input type="radio" name="color" id="2">
-                      <span class="two"></span>
+                      <span class="two" data-image="img/cyan.png" data-color="Cyan"></span>
                     </label>
                     <label for="3">
                       <input type="radio" name="color" id="3">
-                      <span class="three"></span>
+                      <span class="three" data-image="img/blue.png" data-color="Blue"></span>
                     </label>
                     <label for="4">
                       <input type="radio" name="color" id="4">
-                      <span class="four"></span>
+                      <span class="four" data-image="img/black.png" data-color="Black"></span>
                     </label>
                   </div>
                 </div>
@@ -81,39 +81,39 @@
                       <input type="radio" name="size" id="s1">
                       <div>
                         <span class="fw-bold">S</span>
-                        <span class="one">$69</span>
+                        <span class="one">$<span>69</span></span>
                       </div>
                     </label>
                     <label for="s2" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s2">
                       <div>
                         <span class="fw-bold">M</span>
-                        <span class="two">$79</span>
+                        <span class="two">$<span>79</span></span>
                       </div>
                     </label>
                     <label for="s3" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s3">
                       <div>
                         <span class="fw-bold">L</span>
-                        <span class="three">$89</span>
+                        <span class="three">$<span>89</span></span>
                       </div>
                     </label>
                     <label for="s4" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s4">
                       <div>
                         <span class="fw-bold">XL</span>
-                        <span class="four">$99</span>
+                        <span class="four">$<span>99</span></span>
                       </div>
                     </label>
                   </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                   <div class="d-flex align-items-center product-count">
-                    <span class="d-flex align-items-center justify-content-center lh-1">
+                    <span class="d-flex align-items-center justify-content-center lh-1 minus">
                       <i class="fa-solid fa-minus"></i>
                     </span>
-                    <span class="d-flex align-items-center justify-content-center lh-1">1</span>
-                    <span class="d-flex align-items-center justify-content-center lh-1">
+                    <span class="d-flex align-items-center justify-content-center lh-1 qty">1</span>
+                    <span class="d-flex align-items-center justify-content-center lh-1 plus">
                       <i class="fa-solid fa-plus"></i>
                     </span>
                   </div>
@@ -126,15 +126,14 @@
             </div>
           </div>
           <div class="col-12 d-flex align-items-center justify-content-center mt-5">
-            <button type="button" class="checkout-btn fw-bold d-flex align-items-center gap-2">Checkout <span>1</span></button>
+            <button type="button" class="checkout-btn fw-bold d-flex align-items-center gap-2">Checkout <span class="checkout-qty">1</span></button>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
