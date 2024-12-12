@@ -167,7 +167,6 @@ p {
 .cart-btn {
   font-size: 15px;
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
   color: var(--white);
   padding: 15px 20px 11px;
   border-radius: 3px;
@@ -178,4 +177,22 @@ p {
   font-size: 18px;
   color: var(--blueberry);
   cursor: pointer;
+}
+.checkout-btn {
+  font-family: "Roboto", sans-serif;
+  color: var(--theme-black);
+  font-size: 15px;
+  line-height: 18px;
+  padding: 12px 25px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: var(--dark-yellow);
+}
+.checkout-btn span {
+  line-height: 16px;
+  font-size: 14px;
+  background-color: var(--white);
+  padding: 3px 6px 2px;
+  border-radius: 5px;
 }
