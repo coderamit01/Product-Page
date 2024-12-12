@@ -126,7 +126,72 @@
             </div>
           </div>
           <div class="col-12 d-flex align-items-center justify-content-center mt-5">
-            <button type="button" class="checkout-btn fw-bold d-flex align-items-center gap-2">Checkout <span class="checkout-qty">1</span></button>
+            <button type="button" class="checkout-btn fw-bold d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#checkout-modal">Checkout <span class="checkout-qty">1</span></button>
+          </div>
+          <div class="col-12">
+            <div class="modal fade show d-block" id="checkout-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="checkout-container modal-content p-1 p-md-4">
+                  <h4 class="text-start">Your Cart</h4>
+                  <div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Item</th>
+                          <th scope="col">Color</th>
+                          <th scope="col">Size</th>
+                          <th scope="col">Qnt</th>
+                          <th scope="col">Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src="https://via.placeholder.com/50" alt="Product Image" class="me-2">
+                            Classy Modern Smart Watch
+                          </td>
+                          <td>Black</td>
+                          <td><strong>XL</strong></td>
+                          <td>1</td>
+                          <td>$99.00</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="https://via.placeholder.com/50" alt="Product Image" class="me-2">
+                            Classy Modern Smart Watch
+                          </td>
+                          <td>Purple</td>
+                          <td><strong>L</strong></td>
+                          <td>2</td>
+                          <td>$178.00</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="https://via.placeholder.com/50" alt="Product Image" class="me-2">
+                            Classy Modern Smart Watch
+                          </td>
+                          <td>Cyan</td>
+                          <td><strong>M</strong></td>
+                          <td>1</td>
+                          <td>$79.00</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr class="total-row">
+                          <th colspan="3">Total</th>
+                          <th>4</th>
+                          <th>$356.00</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-end gap-4">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button class="btn btn-primary">Checkout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -196,3 +196,16 @@ p {
   padding: 3px 6px 2px;
   border-radius: 5px;
 }
+/* Checkout Modal styles */
+.cart-container h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.table th, .table td {
+  vertical-align: middle;
+}
+.total-row th {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
