@@ -82,28 +82,28 @@
                       <input type="radio" name="size" id="s1">
                       <div>
                         <span class="fw-bold">S</span>
-                        <span class="one">$<span>69</span></span>
+                        <span class="one">$<span>69.00</span></span>
                       </div>
                     </label>
                     <label for="s2" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s2">
                       <div>
                         <span class="fw-bold">M</span>
-                        <span class="two">$<span>79</span></span>
+                        <span class="two">$<span>79.00</span></span>
                       </div>
                     </label>
                     <label for="s3" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s3">
                       <div>
                         <span class="fw-bold">L</span>
-                        <span class="three">$<span>89</span></span>
+                        <span class="three">$<span>89.00</span></span>
                       </div>
                     </label>
                     <label for="s4" class="d-flex align-items-center gap-2">
                       <input type="radio" name="size" id="s4">
                       <div>
                         <span class="fw-bold">XL</span>
-                        <span class="four">$<span>99</span></span>
+                        <span class="four">$<span>99.00</span></span>
                       </div>
                     </label>
                   </div>
@@ -119,7 +119,7 @@
                       <i class="fa-solid fa-plus"></i>
                     </span>
                   </div>
-                  <div class="cart-btn lh-1 fw-bold">Add To Cart</div>
+                  <button class="ct-btn cart-btn ct-btn-purpule fw-bold">Add To Cart</button>
                   <div class="bookmark">
                     <i class="fa-regular fa-heart"></i>
                   </div>
@@ -132,12 +132,12 @@
               data-bs-target="#checkout-modal">Checkout <span class="checkout-qty">1</span></button>
           </div>
           <div class="col-12">
-            <div class="modal fade show d-block" id="checkout-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="checkout-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="checkout-container modal-content p-1 p-md-4">
-                  <h4 class="text-start">Your Cart</h4>
-                  <div>
+                <div class="checkout-container modal-content px-3 py-4 py-md-5 px-lg-5">
+                  <h4 class="text-start fw-bold cart-title text-tblack">Your Cart</h4>
+                  <div class="pb-2">
                     <table class="table">
                       <thead>
                         <tr>
@@ -155,23 +155,23 @@
                             Classy Modern Smart Watch
                           </td>
                           <td>Black</td>
-                          <td><strong>XL</strong></td>
-                          <td>1</td>
-                          <td>$99.00</td>
+                          <td class="fw-bold text-tblack">XL</td>
+                          <td class="fw-bold text-tblack">1</td>
+                          <td class="fw-bold text-tblack">$<span class="ct-price">99</span></td>
                         </tr>
                       </tbody>
                       <tfoot>
                         <tr class="total-row">
-                          <th colspan="3">Total</th>
-                          <th>4</th>
-                          <th>$356.00</th>
+                          <th colspan="3" class="fw-bold text-tblack">Total</th>
+                          <th class="fw-bold text-tblack cart-qty">4</th>
+                          <th class="fw-bold text-tblack">$<span class="cart-amount">356.00</span></th>
                         </tr>
                       </tfoot>
                     </table>
                   </div>
                   <div class="d-flex align-items-center justify-content-end gap-4">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
-                    <button class="btn btn-primary">Checkout</button>
+                    <button type="button" class="ct-btn ct-btn-outline fw-bold" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button class="ct-btn ct-btn-purpule fw-bold">Checkout</button>
                   </div>
                 </div>
               </div>
