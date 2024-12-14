@@ -265,3 +265,9 @@ p {
 .cart-amount {
   font-size: 20px !important;
 }
+.cart-img {
+  height: 36px;
+  width: 36px;
+  object-fit: cover;
+  border-radius: 3px;
+}

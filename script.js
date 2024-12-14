@@ -90,7 +90,7 @@ const handleAddToCart = () => {
     setProductData(cart);
 
 
-    checkoutQty.innerHTML = cart.length;
+    checkoutQty.innerHTML = getStoredData().length;
 
     colorWarning.style.display = 'none';
     sizeWarning.style.display = 'none';
@@ -100,5 +100,33 @@ const handleAddToCart = () => {
 // Initialize the Add To Cart Function 
 handleAddToCart();
 
-
 // Show cart items in checkout modal 
+const showCartItems = () => {
+  const cart = getStoredData();
+  const cartItems = document.querySelector('.cart-list');
+  cart.forEach(item => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+    <td class="d-flex align-items-center gap-2">
+      <img src='${item.img}' alt='${item.title}' class="cart-img">
+      <span>${item.title}</span>
+    </td>
+    <td>${item.color}</td>
+    <td class="fw-bold text-tblack">${item.size}</td>
+    <td class="fw-bold text-tblack ct-qty">${item.quantity}</td>
+    <td class="fw-bold text-tblack">$<span class="ct-price">${item.price}</span></td>
+    `;
+    cartItems.appendChild(row);
+  });
+  
+  // Total Quantity 
+  const ctQty = document.querySelectorAll('.ct-qty');
+  const totalQty = Array.from(ctQty).reduce((acc, curr) => acc + parseFloat(curr.textContent), 0)
+  document.querySelector('.cart-qty').textContent = totalQty;
+  // Total Price 
+  const price = document.querySelectorAll('.ct-price');
+  const totalPrice = Array.from(price).reduce((acc, curr) => acc + parseFloat(curr.textContent), 0)
+  document.querySelector('.cart-amount').textContent = totalPrice;
+
+}
+showCartItems();
