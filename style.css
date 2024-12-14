@@ -209,3 +209,7 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
 }
+.size-warning,
+.color-warning {
+  display: none;
+}

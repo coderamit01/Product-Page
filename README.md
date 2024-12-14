@@ -1,1 +1,1 @@
-# Product Single Page
+# Single Product Page
