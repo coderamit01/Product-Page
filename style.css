@@ -204,6 +204,7 @@ p {
   border-radius: 30px;
   background-color: var(--dark-yellow);
 }
+
 .checkout-btn span {
   line-height: 16px;
   font-size: 14px;
@@ -270,4 +271,22 @@ p {
   width: 36px;
   object-fit: cover;
   border-radius: 3px;
+}
+.ct-title {
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .product-details .product-title {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  .vr-sizes div {
+    padding: 5px 10px;
+  }
 }

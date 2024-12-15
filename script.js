@@ -1,5 +1,6 @@
 const addToCart = document.querySelector('.cart-btn');
 const productImage = document.querySelector('.product-image');
+const checkOutButton = document.querySelector('.checkout-btn');
 // updating the product image
 const handleVariableImage = () => {
   const variableColors = document.querySelectorAll('.vr-colors span');
@@ -37,96 +38,116 @@ const updateProductQuantity = () => {
 updateProductQuantity();
 // Initialize Product Quantity Function
 
-// Get stored products from localstorage
+// Get stored products from localStorage
 const getStoredData = () => {
   const storedData = JSON.parse(localStorage.getItem('cart'));
   return storedData ? storedData : [];
 };
 
-// Set products to localstorage
+// Set products to localStorage
 const setProductData = (data) => {
   localStorage.setItem('cart', JSON.stringify(data));
 };
 
-// Added to Cart Product Function 
+// cart items
+const showCartItems = () => {
+  const cart = getStoredData();
+  const cartItems = document.querySelector('.cart-list');
+
+  cartItems.innerHTML = '';
+
+  let totalQty = 0;
+  let totalPrice = 0;
+
+  cart.forEach(item => {
+    totalQty += parseInt(item.quantity);
+    totalPrice += parseInt(item.price) * parseInt(item.quantity);
+
+    cartItems.innerHTML += `
+    <tr>
+      <td class="d-flex align-items-center gap-2">
+        <img src='${item.img}' alt='${item.title}' class="cart-img">
+        <span class="ct-title">${item.title}</span>
+      </td>
+      <td>${item.color}</td>
+      <td class="fw-bold text-tblack">${item.size}</td>
+      <td class="fw-bold text-tblack ct-qty">${item.quantity}</td>
+      <td class="fw-bold text-tblack">$<span class="ct-price">${item.price}</span></td>
+    </tr>
+    `;
+  });
+  
+  // Total Quantity 
+  document.querySelector('.total-cart-qty').textContent = totalQty;
+  document.querySelector('.cart-amount').textContent = parseFloat(totalPrice).toFixed(2);
+
+}
+
+// Added to Cart Product Function
 const handleAddToCart = () => {
-  const checkoutQty = document.querySelector('.checkout-qty'); 
-  const cart = [];
-  addToCart.addEventListener('click', () => {
+  const addToCartButton = document.querySelector('.cart-btn');
+
+  addToCartButton.addEventListener('click', () => {
+    const cart = getStoredData();
     const colorWarning = document.querySelector('.color-warning');
     const sizeWarning = document.querySelector('.size-warning');
     const colorChecked = document.querySelector('.vr-colors input:checked');
     const sizeChecked = document.querySelector('.vr-sizes input:checked');
-    // check is color or size selected 
-    if(!colorChecked){
+
+    // Check if color or size is selected
+    if (!colorChecked) {
       colorWarning.style.display = 'block';
       return;
+    } else {
+      colorWarning.style.display = 'none';
     }
-    if(!sizeChecked){
+    if (!sizeChecked) {
       sizeWarning.style.display = 'block';
       return;
+    } else {
+      sizeWarning.style.display = 'none';
     }
+
+    // Get product details
+    const productImage = document.querySelector('.product-image');
     const productImg = productImage.src;
     const productTitle = document.querySelector('.product-title').textContent.trim();
     const productQuantity = document.querySelector('.qty').textContent.trim();
     const productColor = colorChecked?.nextElementSibling.dataset.color;
     const productPrice = sizeChecked?.nextElementSibling?.children[1]?.children[0].textContent.trim();
-    const producSize = sizeChecked?.nextElementSibling?.children[0]?.textContent;
-    // Create a object to store the product details 
+    const productSize = sizeChecked?.nextElementSibling?.children[0]?.textContent;
+
+    // Create a product object
     const product = {
       img: productImg,
       title: productTitle,
       quantity: productQuantity,
       color: productColor,
-      size: producSize,
-      price: productPrice
+      size: productSize,
+      price: productPrice,
     };
-
-    cart.push(product);
-    console.log(cart);
-
-
-
+    // Check if the product already exists
+    const existingProduct = cart.find(item =>
+      item.title === productTitle && item.color === productColor && item.size === productSize
+    );
+    if (existingProduct) {
+      existingProduct.quantity = parseInt(existingProduct.quantity) + parseInt(productQuantity);
+    } else {
+      cart.push(product);
+    }
+    // Save updated cart to localStorage
     setProductData(cart);
+    document.querySelector('.checkout-qty').textContent = cart.length;
+    checkOutButton.style.visibility = cart.length < 1 ? 'hidden' : 'visible';
 
-
-    checkoutQty.innerHTML = getStoredData().length;
-
-    colorWarning.style.display = 'none';
-    sizeWarning.style.display = 'none';
+    showCartItems();
   });
-  
 };
-// Initialize the Add To Cart Function 
+// Initialize the Add To Cart Function
 handleAddToCart();
 
-// Show cart items in checkout modal 
-const showCartItems = () => {
-  const cart = getStoredData();
-  const cartItems = document.querySelector('.cart-list');
-  cart.forEach(item => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-    <td class="d-flex align-items-center gap-2">
-      <img src='${item.img}' alt='${item.title}' class="cart-img">
-      <span>${item.title}</span>
-    </td>
-    <td>${item.color}</td>
-    <td class="fw-bold text-tblack">${item.size}</td>
-    <td class="fw-bold text-tblack ct-qty">${item.quantity}</td>
-    <td class="fw-bold text-tblack">$<span class="ct-price">${item.price}</span></td>
-    `;
-    cartItems.appendChild(row);
-  });
-  
-  // Total Quantity 
-  const ctQty = document.querySelectorAll('.ct-qty');
-  const totalQty = Array.from(ctQty).reduce((acc, curr) => acc + parseFloat(curr.textContent), 0)
-  document.querySelector('.cart-qty').textContent = totalQty;
-  // Total Price 
-  const price = document.querySelectorAll('.ct-price');
-  const totalPrice = Array.from(price).reduce((acc, curr) => acc + parseFloat(curr.textContent), 0)
-  document.querySelector('.cart-amount').textContent = totalPrice;
+// Show total products in cart on page load
+document.querySelector('.checkout-qty').textContent = getStoredData().length;
+checkOutButton.style.visibility = getStoredData().length < 1 ? 'hidden' : 'visible';
 
-}
 showCartItems();
